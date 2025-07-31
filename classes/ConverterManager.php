@@ -3,19 +3,22 @@ include('ITemperatureConverter.php');
 include('KelvinConverter.php');
 include('FarenheitConverter.php');
 include('CelsiusConverter.php');
+include('TemperatureScale.php');
 
 class ConverterManager {
     
     //TODO: Maybe all info in one input?
     const ASK_DEGREES = "Quants graus fan?";
     const ASK_SCALE = "Escala?(C,F,K)";
+    const VALID_SCALES = ["F","C","K"];
     
     private float $degrees;
-    private string $scale;
+    private TemperatureScale $scale;
   
     public function ask() {
-        $degrees = $this->readDegrees();
-        $scale = $this->readScale();
+        $this->degrees = $this->readDegrees();
+        $this->scale = $this->readScale();
+        var_dump($this->scale);
     }
 
     private function readDegrees(): float {
@@ -24,5 +27,17 @@ class ConverterManager {
        }while(filter_var($degrees, FILTER_VALIDATE_FLOAT) === false);
        
        return floatval($degrees);
+    }
+
+    private function readScale(): TemperatureScale {
+        do {
+            $scale = readline(self::ASK_SCALE);
+        }while(!in_array($scale,self::VALID_SCALES));
+        
+        return match($scale) {
+            "C" => TemperatureScale::Celsius,
+            "F" => TemperatureScale::Farenheit,
+            "K" => TemperatureScale::Kelvin
+        }; 
     }
 }
