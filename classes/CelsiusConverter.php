@@ -1,7 +1,7 @@
 <?php 
 
 class CelsiusConverter implements ITemperatureConverter {
-    public function convert(){}    
+    static function convert(float $degrees){}    
 }
 
 ?>

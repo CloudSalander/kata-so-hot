@@ -1,5 +1,5 @@
 <?php
 
 class KelvinConverter implements ITemperatureConverter {
-    public function convert(){}    
+    static function convert(float $degrees){}    
 }

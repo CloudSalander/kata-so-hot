@@ -18,7 +18,7 @@ class ConverterManager {
     public function ask() {
         $this->degrees = $this->readDegrees();
         $this->scale = $this->readScale();
-        var_dump($this->scale);
+        $this->convert();
     }
 
     private function readDegrees(): float {
@@ -39,5 +39,13 @@ class ConverterManager {
             "F" => TemperatureScale::Farenheit,
             "K" => TemperatureScale::Kelvin
         }; 
+    }
+
+    private function convert() {
+        match($this->scale) {
+            TemperatureScale::Celsius => CelsiusConverter::convert($this->degrees),
+            TemperatureScale::Farenheit => FarenheitConverter::convert($this->degrees),
+            TemperatureScale::Kelvin => KelvinConverter::convert($this->degrees)
+        };
     }
 }
