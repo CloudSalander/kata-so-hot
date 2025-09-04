@@ -1,5 +1,5 @@
 <?php
 
 interface ITemperatureConverter {
-    static function convert(float $degrees);
+    static function convert(float $degrees): void;
 }
