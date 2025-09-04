@@ -1,7 +1,6 @@
 <?php
 
 class FahrenheitConverter implements ITemperatureConverter {
-    private const KELVIN_VALUE = 273.15;
 
     static function convert(float $degrees): void{
         echo $degrees." Fahrenheit degrees are".PHP_EOL;
