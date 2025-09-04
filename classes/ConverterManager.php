@@ -1,7 +1,7 @@
 <?php
 include('ITemperatureConverter.php');
 include('KelvinConverter.php');
-include('FarenheitConverter.php');
+include('FahrenheitConverter.php');
 include('CelsiusConverter.php');
 include('TemperatureScale.php');
 
@@ -44,7 +44,7 @@ class ConverterManager {
     private function convert(): void {
         match($this->scale) {
             TemperatureScale::Celsius => CelsiusConverter::convert($this->degrees),
-            TemperatureScale::Fahrenheit => FarenheitConverter::convert($this->degrees),
+            TemperatureScale::Fahrenheit => FahrenheitConverter::convert($this->degrees),
             TemperatureScale::Kelvin => KelvinConverter::convert($this->degrees)
         };
     }
