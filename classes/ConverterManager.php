@@ -36,7 +36,7 @@ class ConverterManager {
         
         return match($scale) {
             "C" => TemperatureScale::Celsius,
-            "F" => TemperatureScale::Farenheit,
+            "F" => TemperatureScale::Fahrenheit,
             "K" => TemperatureScale::Kelvin
         }; 
     }
