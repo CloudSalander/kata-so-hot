@@ -1,5 +1,5 @@
 <?php
 
 class FarenheitConverter implements ITemperatureConverter {
-    static function convert(float $degrees): void{}   
+    static function convert(float $degrees): void{}
 }

@@ -44,7 +44,7 @@ class ConverterManager {
     private function convert(): void {
         match($this->scale) {
             TemperatureScale::Celsius => CelsiusConverter::convert($this->degrees),
-            TemperatureScale::Farenheit => FarenheitConverter::convert($this->degrees),
+            TemperatureScale::Fahrenheit => FarenheitConverter::convert($this->degrees),
             TemperatureScale::Kelvin => KelvinConverter::convert($this->degrees)
         };
     }
